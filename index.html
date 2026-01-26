@@ -1009,29 +1009,54 @@
             }
         });
 
-        form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
+
             const email = emailInput.value.trim();
-            
+            const submitBtn = form.querySelector('.submit-btn');
+
             if (!email) {
                 showError('Please enter your email address');
                 return;
             }
-            
+
             if (!isValidEmail(email)) {
                 showError('Please enter a valid email address');
                 return;
             }
-            
+
             hideError();
-            
-            // TODO: Add your email submission logic here (e.g., ConvertKit)
-            // For now, just show success state
-            form.classList.add('success');
-            
-            // Fade out footer social links
-            footerSocials.classList.add('fade-out');
+
+            // Disable button and show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Joining...';
+
+            try {
+                const response = await fetch('/api/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email }),
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.error || 'Something went wrong');
+                }
+
+                // Success! Show success state
+                form.classList.add('success');
+
+                // Fade out footer social links
+                footerSocials.classList.add('fade-out');
+
+            } catch (error) {
+                showError(error.message || 'Something went wrong. Please try again.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Join the Waitlist';
+            }
         });
     </script>
 </body>
