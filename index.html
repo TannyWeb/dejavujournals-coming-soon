@@ -176,12 +176,27 @@
         /* Product descriptor */
         .product-descriptor {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 0.85rem;
+            font-size: 1rem;
             font-weight: 400;
             color: var(--warm-brown);
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            margin-bottom: 2rem;
+            margin-bottom: 1.25rem;
+        }
+
+        /* Value proposition - concrete detail + incentive */
+        .value-prop {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: var(--sepia-light);
+            letter-spacing: 0.02em;
+            margin-bottom: 1.75rem;
+        }
+
+        .value-prop .separator {
+            margin: 0 0.6em;
+            opacity: 0.4;
         }
 
         /* Email signup */
@@ -600,20 +615,24 @@
             animation: textReveal 0.7s ease-out 2.2s forwards;
         }
 
-        .email-prompt.animate-time-reveal {
+        .value-prop.animate-time-reveal {
             animation: fadeUp 0.7s ease-out 2.4s forwards;
         }
 
-        .signup-form.animate-time-reveal {
+        .email-prompt.animate-time-reveal {
             animation: fadeUp 0.7s ease-out 2.6s forwards;
         }
 
-        .social-links.animate-time-reveal {
+        .signup-form.animate-time-reveal {
             animation: fadeUp 0.7s ease-out 2.8s forwards;
         }
 
-        .footer.animate-time-reveal {
+        .social-links.animate-time-reveal {
             animation: fadeUp 0.7s ease-out 3s forwards;
+        }
+
+        .footer.animate-time-reveal {
+            animation: fadeUp 0.7s ease-out 3.2s forwards;
         }
 
         /* Journals background fade in */
@@ -788,6 +807,7 @@
         <h2 class="main-heading animate-time-reveal">Coming Soon</h2>
         <p class="subheading animate-time-reveal">Where Memories Return</p>
         <p class="product-descriptor animate-time-reveal">Handcrafted Leather Journals</p>
+        <p class="value-prop animate-time-reveal">Full-grain leather, made in small batches<span class="separator">·</span>Join for early access</p>
 
         <!-- Email Signup -->
         <p class="email-prompt animate-time-reveal">Reserve your place in time</p>
