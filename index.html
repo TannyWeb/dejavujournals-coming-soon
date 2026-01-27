@@ -308,8 +308,8 @@
         /* Wax Seal Animation */
         .wax-seal-container {
             position: relative;
-            width: 70px;
-            height: 70px;
+            width: 100px;
+            height: 100px;
             margin-bottom: 0.75rem;
             overflow: visible;
         }
@@ -317,6 +317,7 @@
         .wax-seal {
             width: 100%;
             height: 100%;
+            object-fit: contain;
             transform: translateY(-120px) scale(1.1);
             opacity: 0;
         }
@@ -358,8 +359,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) scale(0);
-            width: 90px;
-            height: 90px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             background: radial-gradient(circle, rgba(139, 58, 58, 0.3) 0%, transparent 70%);
             opacity: 0;
@@ -378,32 +379,6 @@
             100% {
                 transform: translate(-50%, -50%) scale(1.8);
                 opacity: 0;
-            }
-        }
-
-        /* Wax drip effect */
-        .wax-drips {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80px;
-            height: 80px;
-            opacity: 0;
-        }
-
-        .signup-form.success .wax-drips {
-            animation: dripsAppear 0.4s ease-out 0.5s forwards;
-        }
-
-        @keyframes dripsAppear {
-            0% {
-                opacity: 0;
-                transform: translate(-50%, -50%) scale(0.8);
-            }
-            100% {
-                opacity: 1;
-                transform: translate(-50%, -50%) scale(1);
             }
         }
 
@@ -824,62 +799,8 @@
             </div>
             <div class="success-message">
                 <div class="wax-seal-container">
-                    <!-- Wax drips behind the seal -->
-                    <svg class="wax-drips" viewBox="0 0 80 80">
-                        <ellipse cx="40" cy="40" rx="38" ry="36" fill="#8B3A3A" opacity="0.3"/>
-                        <ellipse cx="20" cy="55" rx="8" ry="10" fill="#8B3A3A" opacity="0.25"/>
-                        <ellipse cx="60" cy="58" rx="7" ry="9" fill="#8B3A3A" opacity="0.25"/>
-                        <ellipse cx="15" cy="35" rx="5" ry="7" fill="#8B3A3A" opacity="0.2"/>
-                        <ellipse cx="65" cy="30" rx="6" ry="8" fill="#8B3A3A" opacity="0.2"/>
-                    </svg>
-                    <!-- Main wax seal -->
-                    <svg class="wax-seal" viewBox="0 0 70 70">
-                        <defs>
-                            <radialGradient id="waxGradient" cx="35%" cy="35%" r="60%">
-                                <stop offset="0%" style="stop-color:#A94442"/>
-                                <stop offset="50%" style="stop-color:#8B3A3A"/>
-                                <stop offset="100%" style="stop-color:#6E2E2E"/>
-                            </radialGradient>
-                            <filter id="innerShadow" x="-20%" y="-20%" width="140%" height="140%">
-                                <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
-                                <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
-                                <feComposite in="SourceGraphic" in2="offsetBlur" operator="over"/>
-                            </filter>
-                        </defs>
-                        <!-- Outer irregular wax shape -->
-                        <path d="M35 3 
-                                 Q48 5 55 10 
-                                 Q62 18 65 30 
-                                 Q67 42 62 52 
-                                 Q55 62 45 66 
-                                 Q35 69 25 66 
-                                 Q15 62 8 52 
-                                 Q3 42 5 30 
-                                 Q8 18 15 10 
-                                 Q22 5 35 3Z" 
-                              fill="url(#waxGradient)" filter="url(#innerShadow)"/>
-                        <!-- Inner embossed circle -->
-                        <circle cx="35" cy="35" r="22" fill="none" stroke="#6E2E2E" stroke-width="1.5" opacity="0.5"/>
-                        <circle cx="35" cy="35" r="22" fill="none" stroke="#C4A574" stroke-width="0.5" opacity="0.3"/>
-                        <!-- DV Monogram -->
-                        <text x="35" y="32" 
-                              font-family="Playfair Display, serif" 
-                              font-size="14" 
-                              font-weight="600"
-                              fill="#F5F0E6" 
-                              text-anchor="middle"
-                              opacity="0.9">D</text>
-                        <text x="35" y="46" 
-                              font-family="Playfair Display, serif" 
-                              font-size="14" 
-                              font-weight="600"
-                              fill="#F5F0E6" 
-                              text-anchor="middle"
-                              opacity="0.9">V</text>
-                        <!-- Small decorative dots -->
-                        <circle cx="22" cy="35" r="1.5" fill="#F5F0E6" opacity="0.4"/>
-                        <circle cx="48" cy="35" r="1.5" fill="#F5F0E6" opacity="0.4"/>
-                    </svg>
+                    <!-- Main wax seal PNG -->
+                    <img src="./images/wax-seal.png" alt="Wax Seal" class="wax-seal">
                     <!-- Shine overlay -->
                     <div class="seal-shine"></div>
                     <!-- Impact burst -->
