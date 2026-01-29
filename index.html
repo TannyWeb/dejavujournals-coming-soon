@@ -534,6 +534,47 @@
             position: relative;
         }
 
+        .etsy-btn {
+            display: inline-block;
+            margin: 0.5rem 0 1.25rem 0; /* meaningful spacing */
+            padding: 0.8rem 2rem;       /* Desktop padding */
+            
+            /* "Ghost Button" Style */
+            border: 1px solid var(--burgundy); 
+            color: var(--burgundy);
+            background: transparent;
+            
+            /* Typography */
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.95rem;         /* Desktop font size */
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .etsy-btn:hover {
+            background: var(--burgundy);
+            color: var(--cream);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139, 58, 58, 0.2);
+        }
+
+        /* MOBILE ADJUSTMENTS */
+        @media (max-width: 480px) {
+            .etsy-btn {
+                /* Smaller than the main button to keep hierarchy */
+                padding: 0.6rem 1.5rem; 
+                font-size: 0.75rem;     
+                width: auto;            /* Let content define width so it doesn't span full screen */
+                min-width: 200px;       /* Ensure it's still tappable */
+                margin-bottom: 1rem;
+            }
+        }
+
         /* Ink flourish separator */
         .ink-flourish {
             display: block;
@@ -1005,8 +1046,11 @@
             <div class="ink-blot ink-blot-4"></div>
             <div class="ink-blot ink-blot-5"></div>
             
-            <p class="etsy-line">The first five arrive February 1st on <a href="https://www.etsy.com/shop/dejavujournals/" target="_blank" rel="noopener" class="etsy-link">Etsy</a></p>
-            <p class="etsy-line-secondary">The full collection finds its home here this March.</p>
+            <p class="etsy-line">The first collection arrives February 1st</p>
+            <a href="https://www.etsy.com/shop/dejavujournals/" target="_blank" rel="noopener" class="etsy-btn">
+                Visit the Etsy Shop
+            </a>
+            <p class="etsy-line-secondary">The full collection finds its home here very soon.</p>
         </div>
 
         <!-- Social Links -->
