@@ -117,6 +117,16 @@
 
         /* A5 size - largest */
         .journal-silhouette:nth-child(3) {
+
+            .product-grid {
+                flex-direction: column;
+                gap: 2rem;
+                align-items: center;
+            }
+
+            .product-item {
+                max-width: 200px;
+            }
             width: 115px;
             height: 160px;
             transform: rotate(8deg) translateY(-15px);
@@ -260,11 +270,21 @@
             text-transform: uppercase;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s ease;
+
+            /*change to secondary */
+
+            border: 1px solid var(--burgundy);
+            color: var(--burgundy);
+            background: transparent;
         }
 
         .submit-btn:hover {
             background: var(--burgundy-dark);
             transform: translateY(-1px);
+
+            /* secondary change */
+            background: var(--burgundy);
+            color: var(--cream);
         }
 
         /* Validation error styles */
@@ -560,7 +580,26 @@
             
             transition: all 0.3s ease;
             cursor: pointer;
-        }
+
+
+
+            /* make primary */
+
+            width: 100%;
+            max-width: 320px;
+            padding: 0.875rem 2rem;
+            background: var(--burgundy);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+                }
 
         .etsy-btn:hover {
             background: var(--burgundy);
@@ -647,6 +686,59 @@
             right: calc(50% - 135px);
             opacity: 0.2;
         }
+        /* Product Preview Section */
+        .product-preview {
+            margin-bottom: 1rem;
+        }
+
+        .product-preview.animate-time-reveal {
+            animation: fadeUp 0.7s ease-out 2.9s forwards;
+        }
+
+        .collection-showcase {
+            display: block;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            margin-bottom: 2rem;
+        }
+
+        .collection-showcase:hover {
+            transform: translateY(-8px);
+        }
+
+        .collection-image {
+            width: 100%;
+            max-width: 650px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            filter: drop-shadow(0 8px 20px rgba(0,0,0,0.15));
+            transition: filter 0.3s ease;
+        }
+
+        .collection-showcase:hover .collection-image {
+            filter: drop-shadow(0 12px 30px rgba(0,0,0,0.2));
+        }
+
+        .collection-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--sepia);
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .collection-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            color: var(--sepia-light);
+            letter-spacing: 0.05em;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
 
         .etsy-line {
             font-family: 'Cormorant Garamond', serif;
@@ -791,6 +883,7 @@
         .journals-background {
             opacity: 0;
             animation: fadeIn 1.5s ease-out 1.5s forwards;
+            display: none;
         }
 
         @keyframes fadeIn {
@@ -849,12 +942,15 @@
                 transform: rotate(2deg) translateY(0px);
             }
 
-            .journal-silhouette:nth-child(3) {
+
                 width: 90px;
                 height: 125px;
                 transform: rotate(8deg) translateY(-10px);
             }
 
+            .collection-image {
+                max-width: 100%;
+            }
             .main-heading {
                 font-size: 0.8rem;
                 margin-bottom: 0.5rem;
@@ -991,10 +1087,50 @@
         </div>
 
         <!-- Heading -->
-        <h2 class="main-heading animate-time-reveal">Coming Soon</h2>
+        <h2 class="main-heading animate-time-reveal">The Heirloom Collection</h2>
         <p class="subheading animate-time-reveal">Where Memories Return</p>
         <p class="product-descriptor animate-time-reveal">Handcrafted Leather Journals</p>
-        <p class="value-prop animate-time-reveal">Full-grain leather, made in small batches<span class="separator">&middot;</span>Join for early access</p>
+        <p class="value-prop animate-time-reveal">Full-grain leather, made in small batches<span class="separator">&middot;</span>Limited availability</p>
+
+            <!-- Product Preview Section -->
+            <div class="product-preview animate-time-reveal">
+                <a href="https://www.etsy.com/shop/dejavujournals?ref=coming_soon_product" target="_blank" rel="noopener" class="collection-showcase">
+                    <img src="display-transparent.png" alt="The Heirloom Collection - Five Handcrafted Leather Journals" class="collection-image">
+                </a>
+                <p class="collection-title">The Heirloom Collection is live</p>
+        
+            </div>
+
+
+
+        
+        <!-- Etsy Launch Info -->
+        <div class="etsy-info animate-time-reveal">
+            <!-- Ink flourish separator -->
+            <svg class="ink-flourish" viewBox="0 0 120 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 10 Q25 4, 40 10 T60 10 T80 10 T110 10" stroke="#8B7355" stroke-width="1" fill="none" stroke-linecap="round"/>
+                <path d="M35 10 Q40 6, 45 10" stroke="#8B7355" stroke-width="0.75" fill="none" stroke-linecap="round"/>
+                <path d="M75 10 Q80 14, 85 10" stroke="#8B7355" stroke-width="0.75" fill="none" stroke-linecap="round"/>
+                <circle cx="60" cy="10" r="2" fill="#8B7355"/>
+                <circle cx="20" cy="10" r="1" fill="#8B7355" opacity="0.6"/>
+                <circle cx="100" cy="10" r="1" fill="#8B7355" opacity="0.6"/>
+            </svg>
+            
+            <!-- Ink blots for visual interest -->
+            <div class="ink-blot ink-blot-1"></div>
+            <div class="ink-blot ink-blot-2"></div>
+            <div class="ink-blot ink-blot-3"></div>
+            <div class="ink-blot ink-blot-4"></div>
+            <div class="ink-blot ink-blot-5"></div>
+            
+            <p class="etsy-line">Five handcrafted journals. Limited availability.</p>
+            <a href="https://www.etsy.com/shop/dejavujournals?ref=coming_soon_cta" target="_blank" rel="noopener" class="etsy-btn">
+                Shop the Collection
+            </a>
+            <p class="etsy-line-secondary">The full collection finds its home here very soon.</p>
+        </div>
+
+
 
         <!-- Email Signup -->
         <p class="email-prompt animate-time-reveal">Reserve your place in time</p>
@@ -1033,31 +1169,7 @@
             </div>
         </form>
 
-        <!-- Etsy Launch Info -->
-        <div class="etsy-info animate-time-reveal">
-            <!-- Ink flourish separator -->
-            <svg class="ink-flourish" viewBox="0 0 120 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10 10 Q25 4, 40 10 T60 10 T80 10 T110 10" stroke="#8B7355" stroke-width="1" fill="none" stroke-linecap="round"/>
-                <path d="M35 10 Q40 6, 45 10" stroke="#8B7355" stroke-width="0.75" fill="none" stroke-linecap="round"/>
-                <path d="M75 10 Q80 14, 85 10" stroke="#8B7355" stroke-width="0.75" fill="none" stroke-linecap="round"/>
-                <circle cx="60" cy="10" r="2" fill="#8B7355"/>
-                <circle cx="20" cy="10" r="1" fill="#8B7355" opacity="0.6"/>
-                <circle cx="100" cy="10" r="1" fill="#8B7355" opacity="0.6"/>
-            </svg>
-            
-            <!-- Ink blots for visual interest -->
-            <div class="ink-blot ink-blot-1"></div>
-            <div class="ink-blot ink-blot-2"></div>
-            <div class="ink-blot ink-blot-3"></div>
-            <div class="ink-blot ink-blot-4"></div>
-            <div class="ink-blot ink-blot-5"></div>
-            
-            <p class="etsy-line">The first collection arrives February 1st</p>
-            <a href="https://www.etsy.com/shop/dejavujournals/" target="_blank" rel="noopener" class="etsy-btn">
-                Visit the Etsy Shop
-            </a>
-            <p class="etsy-line-secondary">The full collection finds its home here very soon.</p>
-        </div>
+    
 
         <!-- Social Links -->
         <div class="social-links animate-time-reveal" id="footerSocials">
